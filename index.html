@@ -1,11 +1,742 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Tejeswar Reddy - Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejeswar Reddy - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .tagline {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #0066cc;
+            color: white;
+            border: 2px solid #0066cc;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #0066cc;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #0066cc;
+            display: inline-block;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        .about-highlights {
+            background-color: #f0f6ff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .about-highlights ul {
+            list-style: none;
+        }
+
+        .about-highlights li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+
+        .about-highlights li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h3 {
+            color: #0066cc;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        /* Experience Timeline */
+        .experience-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-left: 2px solid #0066cc;
+        }
+
+        .experience-item:last-child {
+            border-left: none;
+            padding-bottom: 0;
+        }
+
+        .experience-item::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background-color: #0066cc;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #0066cc;
+        }
+
+        .experience-title {
+            font-size: 1.15em;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: #0066cc;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-dates {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .experience-desc {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: #e8f0ff;
+            color: #0066cc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        /* Projects Showcase */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card-header {
+            background: linear-gradient(135deg, #0066cc, #004d99);
+            color: white;
+            padding: 20px;
+            min-height: 100px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .project-card-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .project-card-date {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .project-card-body {
+            padding: 20px;
+        }
+
+        .project-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .project-tech-tag {
+            background-color: #e8f0ff;
+            color: #0066cc;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-highlights {
+            list-style: none;
+            color: #555;
+            font-size: 0.85em;
+        }
+
+        .project-highlights li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .project-highlights li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #0066cc;
+        }
+
+        .contact-link-icon {
+            font-size: 1.5em;
+        }
+
+        .contact-link-text {
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #1a1a1a;
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero .tagline {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello, I'm Tejeswar Reddy</h1>
-  <p>Welcome to my portfolio website!</p>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">TR</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <h1>Tejeswar Reddy</h1>
+        <p class="tagline">Senior Analyst | AI & Backend Development Specialist</p>
+        <p style="font-size: 1.1em; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);">
+            Building scalable backend systems, AI-driven solutions, and transforming data into insights
+        </p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            <a href="Resume/main.tex" class="btn btn-secondary" download>Download Resume (LaTeX)</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a Senior Analyst at Accenture with over 2 years of professional experience in Python backend development, artificial intelligence, and data engineering. I specialize in designing scalable systems, optimizing backend performance, and automating workflows to deliver impactful solutions.</p>
+                    <p>My passion lies in leveraging cutting-edge technologies like LLMs, FastAPI, Django, and cloud platforms to solve complex business problems and enhance operational efficiency.</p>
+                </div>
+                <div class="about-highlights">
+                    <strong style="color: #0066cc; display: block; margin-bottom: 15px;">Expertise Areas</strong>
+                    <ul>
+                        <li>AI/LLM Integration & Orchestration</li>
+                        <li>Backend API Development (Django, FastAPI)</li>
+                        <li>Data Engineering & SQL Optimization</li>
+                        <li>Cloud Platforms (GCP, BigQuery)</li>
+                        <li>System Architecture & Optimization</li>
+                        <li>Parallel Processing & Performance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Languages & Databases</h3>
+                    <p>Python • C/C++ • SQL • BigQuery • PostgreSQL</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Backend Frameworks</h3>
+                    <p>Django • FastAPI • REST APIs • Asynchronous Programming</p>
+                </div>
+                <div class="skill-card">
+                    <h3>AI & ML Technologies</h3>
+                    <p>LLMs • LangChain • Vertex AI • ChromaDB • Vector Databases</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Cloud & DevOps</h3>
+                    <p>GCP • IAM • Docker • Git/GitHub • VS Code</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Processing</h3>
+                    <p>OCR • PyPDF • Pandas • Machine Learning • Deep Learning</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Platforms</h3>
+                    <p>Stored Procedures • Pgadmin • Threading • asyncio • aiohttp</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-company">Accenture | Senior Analyst</div>
+                <div class="experience-dates">Jun 2023 - Present</div>
+                
+                <div style="margin-top: 20px;">
+                    <div class="experience-title">AI-Driven Financial Variance Insight System</div>
+                    <div class="experience-dates">Jun 2024 - Present</div>
+                    <div class="experience-desc">
+                        Developed a dual-service system for variance insight generation with <strong>10,000+ pre-generated insights</strong> and natural language query capabilities. Achieved <strong>720x performance improvement</strong> by implementing parallel processing with asyncio and aiohttp, reducing execution time from 30 hours to 2.5 minutes.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">Vertex AI</span>
+                        <span class="tag">BigQuery</span>
+                        <span class="tag">GCP</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <div class="experience-title">OCR and LLM-Driven Invoice Reconciliation</div>
+                    <div class="experience-dates">Apr 2023 - May 2024</div>
+                    <div class="experience-desc">
+                        Automated invoice data extraction from scanned PDFs using OCR and PyPDF. Developed FastAPI services for seamless integration and leveraged LLMs for natural language processing to compare invoice details against transaction records.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">OCR</span>
+                        <span class="tag">PyPDF</span>
+                        <span class="tag">LLMs</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <div class="experience-title">Semantic Resume Ranking System</div>
+                    <div class="experience-dates">Aug 2023 - Nov 2023</div>
+                    <div class="experience-desc">
+                        Created efficient candidate screening system through semantic similarity matching. Implemented ChromaDB for vector database embeddings and Django APIs with threading for accelerated processing.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tag">ChromaDB</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">Vector DB</span>
+                        <span class="tag">Threading</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-company">Siemens | Student Intern</div>
+                <div class="experience-dates">Oct 2022 - Mar 2023</div>
+                <div class="experience-desc">
+                    Worked with the security team identifying vulnerabilities in Siemens NX CAD codebase. Generated comprehensive keyword analysis lists to strengthen codebase security and contributed to security best practices.
+                </div>
+                <div class="tech-tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Security</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <div>
+                            <div class="project-card-title">React Agent with LLM</div>
+                            <div class="project-card-date">Jun 2024</div>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-tech-tags">
+                            <span class="project-tech-tag">LLMs</span>
+                            <span class="project-tech-tag">Python</span>
+                            <span class="project-tech-tag">ReAct</span>
+                        </div>
+                        <div class="project-description">
+                            A reasoning and acting agent built from scratch using the ReAct framework, integrated with LLMs for dynamic decision-making and context-based operations.
+                        </div>
+                        <ul class="project-highlights">
+                            <li>ReAct LLM framework implementation</li>
+                            <li>Tavily Search API integration</li>
+                            <li>Yahoo Finance data analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <div>
+                            <div class="project-card-title">AI Metrics Platform</div>
+                            <div class="project-card-date">Dec 2023 - Mar 2024</div>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-tech-tags">
+                            <span class="project-tech-tag">AIF360</span>
+                            <span class="project-tech-tag">HuggingFace</span>
+                            <span class="project-tech-tag">Python</span>
+                        </div>
+                        <div class="project-description">
+                            Integrated AIF360 and Generative AI evaluations into a Responsible AI (RAI) platform, expanding feature set for model monitoring and quality assessment.
+                        </div>
+                        <ul class="project-highlights">
+                            <li>AIF360 framework integration</li>
+                            <li>HuggingFace model evaluation</li>
+                            <li>Abstraction methods implementation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <div>
+                            <div class="project-card-title">Financial Insight System</div>
+                            <div class="project-card-date">Jun 2024 - Present</div>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-tech-tags">
+                            <span class="project-tech-tag">Django</span>
+                            <span class="project-tech-tag">BigQuery</span>
+                            <span class="project-tech-tag">Vertex AI</span>
+                        </div>
+                        <div class="project-description">
+                            Enterprise-scale system processing 10,000+ insights with 720x performance optimization through parallel processing architecture.
+                        </div>
+                        <ul class="project-highlights">
+                            <li>Dual-service architecture</li>
+                            <li>Parallel processing with asyncio</li>
+                            <li>SQL generation with LangChain</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2>Education</h2>
+            <div class="experience-item">
+                <div class="experience-title">National Institute of Technology Karnataka</div>
+                <div class="experience-company">MTech in Computational Data Science</div>
+                <div class="experience-dates">Aug 2021 - May 2023</div>
+                <div class="experience-desc">
+                    CGPA: 8.13/10 | Secured 99.01 percentile in GATE 2021
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section>
+            <h2>Achievements & Recognition</h2>
+            <div class="experience-item">
+                <div class="experience-desc">
+                    <strong>GATE 2021:</strong> Achieved 99.01 percentile in Graduate Aptitude Test for Engineering
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-desc">
+                    <strong>GeeksforGeeks:</strong> Solved 300+ coding problems | <a href="https://auth.geeksforgeeks.org/user/tejeswarpv" target="_blank" style="color: #0066cc;">View Profile</a>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="experience-desc">
+                    <strong>Sports:</strong> Represented NIT Karnataka in South Zone University Hand Ball Tournament, Rayalaseema University, Kurnool (2022)
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.05em; margin-bottom: 20px;">Feel free to reach out to me for collaborations or just a friendly hello!</p>
+                <div class="contact-links">
+                    <a href="tel:+918978906733" class="contact-link">
+                        <div class="contact-link-icon">📞</div>
+                        <div class="contact-link-text">+91-8978906733</div>
+                    </a>
+                    <a href="mailto:tejeswarpv@gmail.com" class="contact-link">
+                        <div class="contact-link-icon">📧</div>
+                        <div class="contact-link-text">tejeswarpv@gmail.com</div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/teja2404/" target="_blank" class="contact-link">
+                        <div class="contact-link-icon">🔗</div>
+                        <div class="contact-link-text">LinkedIn Profile</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Tejeswar Reddy. All rights reserved. | <a href="Resume/main.tex" style="color: #0066cc;">Resume (LaTeX)</a></p>
+    </footer>
 </body>
 </html>
 
