@@ -1,0 +1,59 @@
+Operational Excellence Advisor  
+Nov 2025 – Present
+
+Tools & Technologies: Python, Django (APIs & serializers), PostgreSQL, JWT, RBAC, multithreading, multitenancy
+
+    Implemented tenant-aware RBAC authorization, ensuring strict role separation and secure access control across 7 client organizations in the APAC region.
+
+    Architected a Django-based multitenant platform with PostgreSQL partitioning, delivering data isolation and compliance for each client while supporting seamless onboarding.
+
+    Optimized backend throughput using multithreading and concurrent task execution, reducing average response times from seconds to sub-second and enabling real-time monitoring for ~100 agents and leads.
+
+    Delivered a performance monitoring tool that provided leadership with actionable insights into agent KPIs and lead conversion rates, allowing faster reporting and more data-driven operational decisions.
+
+
+AI-Driven Financial Variance Insight System  
+Jun 2024 – Nov 2025
+
+Tools & Technologies: Python, Django (APIs & serializers), LangChain (SQL generation), Vertex AI (LLM orchestration), Postgres, BigQuery, Stored Procedures, GCP, IAM, Tableau
+
+    Developed a dual-service backend powering a Tableau dashboard: pre-generated variance insights and a natural language query service for financial data (e.g., balance sheets).
+
+    Engineered an asynchronous Python job to fetch and store 10,000+ pre-generated insights, enabling efficient dashboard rendering and real-time variance analysis.
+
+    Implemented parallel processing with asyncio and aiohttp, reducing job execution time from 30 hours to 2.5 minutes — a 720x performance improvement.
+
+    Integrated Vertex AI with LangChain to orchestrate LLM-driven SQL generation, enabling a chatbot interface for users to query financial data and receive variance explanations.
+
+    Optimized SQL translation and variance analysis using Postgres, BigQuery, and stored procedures, ensuring accurate and performant data handling.
+
+    Deployed securely on GCP with IAM-based role control, ensuring compliance and secure access for enterprise users.
+
+    Completed UAT and production rollout, achieving stable adoption across APAC clients and empowering leadership with actionable financial insights.
+
+IBM AIF360 and GenAI Metrics Integration  
+Dec 2023 – Mar 2024
+
+Tools & Technologies: Python, AIF360, HuggingFace, Generative AI Metrics, Abstraction Methods
+
+    Integrated IBM AIF360 and Generative AI evaluations into Accenture’s Responsible AI platform, expanding support for multi-vendor frameworks (AWS, Google, Azure, IBM).
+
+    Enhanced model monitoring and quality assessment using HuggingFace and abstraction techniques for scalable evaluation.
+
+    Implemented Python-based integrations to unify AI fairness and generative metrics, enabling holistic Responsible AI reporting across diverse client environments.
+
+
+GenAI-Based Semantic Resume Ranking (POC)  
+Aug 2023 – Nov 2023
+
+Tools & Technologies: LLMs, ChromaDB, Vector Database, Django, Threading
+
+    Built a POC system for semantic similarity matching between job descriptions and resumes to streamline candidate screening.
+
+    Implemented resume processing, summarization, and vector embeddings with ChromaDB, enabling efficient ranking and selection.
+
+    Developed scalable APIs in Django and accelerated embedding creation using threading for faster processing.
+
+
+
+

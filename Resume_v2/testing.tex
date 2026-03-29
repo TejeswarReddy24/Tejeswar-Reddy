@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{datatool}
+\usepackage{fp}
+
+% Define the joining date
+\newcommand{\joiningYear}{2023}
+\newcommand{\joiningMonth}{5}
+\newcommand{\joiningDay}{21}
+
+% Get current date
+\newcommand{\currentYear}{\the\year}
+\newcommand{\currentMonth}{\the\month}
+\newcommand{\currentDay}{\the\day}
+
+% Calculate years of experience
+\FPsub\yearDiff{\currentYear}{\joiningYear} % Difference in years
+
+% Calculate months of experience
+\FPsub\monthDiff{\currentMonth}{\joiningMonth}
+\FPiflt{\monthDiff}{0}
+  \FPsub\yearDiff{\yearDiff}{1}
+  \FPadd\monthDiff{\monthDiff}{12}
+\fi
+
+% Round to whole numbers
+\FPtrunc\roundedYears{\yearDiff}{0}
+\FPtrunc\roundedMonths{\monthDiff}{0}
+
+% Conditional display (remove "0 months" when needed)
+\newcommand{\displayExperience}{
+  \ifnum\roundedMonths=0
+    \roundedYears\ years
+  \else
+    \roundedYears\ years and \roundedMonths\ months
+  \fi
+}
+
+\begin{document}
+
+Senior Analyst with nearly \displayExperience\ of experience leveraging expertise in Python backend development, AI integration, and extracting data from databases to deliver impactful solutions.
+
+\end{document}
